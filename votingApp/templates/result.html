@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+    {% load static %}
+    {% block extra_css %}<link rel="stylesheet" href="{% static "extra2.css" %}">{% endblock  %} 
+    {% block content %}
+    <section class="main-body">
+        {% if user.is_authenticated %}
+        <div class="vote-table">
+            {% if position %}
+                <h1>{{ position.election.title }} ({{ position.election.scope }})</h1>
+                <h2>{{ position.title }}</h2>
+                <table class="home-table">
+                    <thead>
+                        <tr>
+                            <th>Candidate Name</th>
+                            <th>Department</th>
+                            <th>Faculty</th>
+                            <th>No. of Votes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                {% for candidacy in results %}
+                    <tr>
+                        <td>{{ candidacy.candidate.student.name }}</td>
+                        <td>{{ candidacy.candidate.student.department }}</td>
+                        <td>{{ candidacy.election.faculty }}</td>
+                        <td>{{ candidacy.total_count }}</td>
+                    </tr>
+                {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+
+            {% regroup results by election as election_groups %}
+
+            {% for election_group in election_groups %}
+            <h1>{{ election_group.grouper.title }} ({{ election_group.grouper.scope }})</h1>
+
+            {% regroup election_group.list by position as position_groups %}
+            {% for pos_group in position_groups %}
+                <h2>{{ pos_group.grouper.title }}</h2>
+                <table class="home-table">
+                <thead>
+                    <tr>
+                    <th>Candidate Name</th>
+                    <th>Department</th>
+                    <th>Faculty</th>
+                    <th>No. of Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candidacy in pos_group.list %}
+                    <tr>
+                        <td>{{ candidacy.candidate.student.name }}</td>
+                        <td>{{ candidacy.candidate.student.department }}</td>
+                        <td>{{ candidacy.election.faculty }}</td>
+                        <td>{{ candidacy.total_count }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            {% endfor %}
+            {% endfor %}
+            {% endif %}
+
+        </div>
+        <div class="statistics">
+            <div class="sr1">
+                <div class="wsr">
+                <span>Total Number of Votes :</span><p> {{ num_of_vote }}</p>
+                <br>
+                <span>Total Number of Voters :</span><p> {{ num_of_voters }}</p>
+                <br>
+            </div>
+            </div>                    
+        </div>
+        {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the home page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+    </section>
+    {% endblock %}

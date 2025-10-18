@@ -1,0 +1,93 @@
+    {% extends "base.html" %}
+    {% load static %}
+
+    {% block extra_css %}<link rel="stylesheet" href="{% static "extra.css" %}">{% endblock  %}    
+    {% block content %}
+    {% if user.is_authenticated %}
+    <section class="main-bodyc">
+        {% if position %}
+            <div class="election-info">
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages|slice:":1" %}
+                         <li class="{{ message.tags }}">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <h1>{{ position.election.title }}</h1>
+                <p>{{ position.election.description }}</p>
+                <p style="font-size: 15px; line-height: 10px;">
+                    It will take place {{ position.election.start_date|date:"Y-m-d" }}
+                    to {{ position.election.end_date|date:"Y-m-d" }}
+                </p>
+                <p style="font-size: 15px; line-height: 10px;">
+                    By {{ position.election.start_date|time:"H:i" }} - {{ position.election.end_date|time:"H:i" }}
+                </p>
+                <a href="{% url "election-results" position.pk %}" class="btn">Result</a>
+
+                <div class="rules">
+                    <h2>Rules and guidelines of this Election</h2>
+                    <p>1. Only eligible members (e.g., students of the department) can vote.</p>
+                    <p>2. Results are final once announced by the election committee.</p>
+                    <p>3. Campaigning must be respectful and free of harassment or misinformation.</p>
+                    <p>4. Votes must be submitted within the official election period.</p>
+                </div>
+            </div>
+            {% endif %}
+
+            
+        </div>
+        <div class="election-candidates">
+            <h1>Candidates</h1>
+            <div class="election-candidates-rows">
+                {% if object_list %}
+                {% for candidacy in object_list %}
+                <div class="candidate-profile">
+                    <div class="img-container">
+                        {% if candidacy.candidate.image %}
+                            <img src="{{ candidacy.candidate.image.url }}" alt="{{ candidacy.candidate }}">
+                        {% else %}
+                            <img src="" alt="">
+                        {% endif %}
+                    </div>
+                    <div>
+                           <span class="label">Name:</span> <p> {{ candidacy.candidate.student.name }} </p>
+                           <br>
+                           <span class="label">Pos:</span> <p class="s-p"> {{ candidacy.position.title }}</p>
+                           <br>
+                           <span class="label">Dep:</span> <p class="s-p">{{ candidacy.candidate.student.department_display  }}</p>
+                           <br>
+                           <span class="label">Fac:</span> <p class="s-p">{{ candidacy.candidate.student.faculty_display }}</p>
+                           <br>
+                           <span class="label">Elec:</span> <p class="s-p"> {{ candidacy.election.title }}</p>
+                           
+                        <div class="cpr-btns">
+                            <a href="{% url "profile" candidacy.candidate.student.pk %}" class="btn">view</a>
+                            {% if position %}
+                            <form method="post" action="{% url 'vote' candidacy.id %}">
+                            {% csrf_token %}
+                            <button id="logout" type="submit" class="btn">Vote</button>
+                            </form>
+                            {% endif %}
+                        </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div> 
+            {% else %}
+                <h2 style="text-align:center; color:white; width:100%;">No candidates are running for this election</h2>
+            {% endif %}
+        </div>
+        {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+
+    </section>
+    
+
+     {% endblock %}

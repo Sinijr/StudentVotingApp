@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "main.css" %}">
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body class="home-body">
+    <nav class="landing-nav">
+        <a href="{% url "landing" %}"><img class="logo-icons" src="{% static "images/icon/logo.jpeg" %}" width="98px" height="42px" alt=""></a>
+        <ul>
+            <li><a href="{% url "login" %}">Log in</a></li>
+            <li><a href="{% url "signup" %}">Sign Up</a></li>
+        </ul>
+    </nav>
+   
+    {% if user.is_authenticated %}
+    <nav class="home-nav">
+     
+        <div class="home-nav-1">
+           <a href="{% url "home" %}"><img class="logo-icons" src="{% static "images/icon/logo.jpeg" %}" width="98px" height="42px" alt=""></a>
+           <ul>
+                <li>   
+                    <a href="{% url "home" %}">
+                      <div class="icon-container">
+                        <img class="social-icons" src="{% static "images/icon/home.png" %} "st" %}" alt="">
+                        Home
+                    </div>
+                    </a>
+                </li>        
+                <li>   
+                    <a href="{% url "profile" request.user.pk %}">
+                    <div class="icon-container">
+                        {% load static %}
+                        <img class="social-icons" src="{% static "images/icon/profile.png" %}" alt="">
+                        Profile
+                    </div>
+                    </a>
+                </li>
+                <li>   
+                    <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <div class="icon-container">
+                        <img class="social-icons" src="{% static "images/icon/logout.png" %}" alt="">
+                        <button id="logout" type="submit">Logout</button>
+                    </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div class="home-nav-2">
+            <ul>
+              <li>   
+                    <a href="{% url "election" %}">
+                      <div class="icon-container">
+                        <img class="social-icons" src="{% static "images/icon/election.png" %}" alt="">
+                        Election
+                    </div>
+                    </a>
+                </li>
+                <li>   
+                    <a href="{% url "candidates" %}">
+                      <div class="icon-container">
+                        <img class="social-icons" src="{% static "images/icon/candidate.png" %}" alt="">
+                        Candidates
+                      </div>
+                    </a>
+                </li>
+                <li>   
+                    <a href="{% url "results" %}">
+                      <div class="icon-container">
+                        <img class="social-icons" src="{% static "images/icon/result.png" %}" alt="">
+                        Result
+                    </div>
+                    </a>
+                </li>
+                <li>   
+                    <a href="{% url "become-candidate" request.user.pk %}">
+                      <div class="icon-container">
+                        <img class="social-icons" src="{% static "images/icon/vote.png" %}" alt="">
+                        Contest
+                    </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+    </nav>
+    {% endif %}
+    {% block content %}
+
+    {% endblock %}
+    <footer>
+        <div class="fr1">
+            <div>
+                <h2><strong>VTC</strong></h2>
+                <img class="social-icons" src="{% static "images/icon/fb.png" %}" alt="Facebook icon">
+                <img class="social-icons" src="{% static "images/icon/ig.png" %}" alt="instagram icon">
+                <img class="social-icons" src="{% static "images/icon/x.png" %}" alt="">
+            </div>
+            <div>
+                <a href="{% url "election" %}">Vote</a>
+                <br>
+                <a href="{% url "create-candidacy" %}">Run for Election</a>
+                <br>
+                <a href="{% url "candidates" %}">Candidates</a>
+                <br>
+                <a href="{% url "election" %}">Elections</a>
+                <br>
+                <a href="{% url "home" %}">About</a>
+            </div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="fr2">
+            <p>VTC@something.org</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

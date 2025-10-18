@@ -1,0 +1,33 @@
+    {% extends "base.html" %}
+    {% load static %}
+
+    {% block extra_css %}<link rel="stylesheet" href="{% static "extra.css" %}">{% endblock  %}    
+    {% block content %}
+    {% if user.is_authenticated %}
+<section class="main-body">
+        <div class="ongoing-elections">
+            <h2>Ongoing Elections</h2>
+            {% for position in object_list %}
+                {% if position.scope == "school" %}
+                    <div class="oe1">
+                        <p> {{ position.title }} | {{ position.election.title }}</p>
+                        <a href="candidates_position/{{ position.pk }}" class="btn">view</a>
+                    </div>  
+                {% else %}
+                    <div class="oe1">
+                        <p> {{ position.title }} | {{ position.election.title }} </p>
+                    <a href="candidates_election/{{ position.pk }}" class="btn">view</a>
+                    </div> 
+                {% endif %}        
+            {% endfor %}   
+        </div>
+    </section>
+    {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+    {% endblock  %}   
+     

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+    {% load static %}
+    {% block content %}
+        <div class="info-block">
+            <div class="ibtw">
+                <h1>Vote with <strong>VFC</strong></h1>
+            <h2>Campus Election Made Safe and Simple</h2>
+            <p>This platform is designed to provide students with a secure, transparent, and convenient way to participate in campus elections. By leveraging digital technology, we ensure that every vote is accurately recorded and every student's voice is heard. The system promotes fairness, accountability, and efficiency, making the electoral process more accessible and reliable for the entire student body.</p>
+            <div class="ib1">
+                <a href="{% url "login" %}" class="btn">Vote Now</a>
+                <a href="{% url "signup" %}" class="btn">Run for Election</a>
+            </div>
+            </div>
+        </div>
+        <div class="ongoing-elections">
+            <h2>Ongoing Elections</h2>
+            <div class="oe1">
+                <div style="display: flex;"><p>Software Engineering <p class="hideatwidth">| Presidential Election </div>
+                <a href="{% url "signup" %}" class="btn">View Election</a>
+            </div>
+            <div class="oe1">
+                <div style="display: flex;"><p>Software Engineering <p class="hideatwidth">| Presidential Election </p></p></div>
+                <a href="{% url "signup" %}" class="btn">View Election</a>
+            </div>
+            <div class="oe1">
+                <div style="display: flex;"><p>Software Engineering <p class="hideatwidth">| Presidential Election </p></p></div>
+                <a href="{% url "signup" %}" class="btn">View Election</a>
+            </div>
+            
+        </div>
+        <div class="authorize-btn">
+            <a href="{% url "login" %}" class="btn">Register Now</a>
+            <a href="{% url "signup" %}" class="btn">Log in</a>
+        </div>
+        <div>
+            <table>
+            <thead>
+                <td>No.</td>
+                <td>Candidates</td>
+                <td>No. of Votes</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <h2 class="elec-stats">Election Statistic</h2>
+        <div class="graphs">    
+            <div class="stat">
+                <div class="Shape"></div>
+                <p>Candidate one</p>
+            </div>
+            <div class="stat">
+                <div class="Shape"></div>
+                <p>Candidate one</p>
+            </div>
+            <div class="stat">
+                <div class="Shape"></div>
+                <p>Candidate one</p>
+            </div>
+            <div class="stat">
+                <div class="Shape"></div>
+                <p>Candidate one</p>
+            </div>
+        </div>
+{% endblock %}

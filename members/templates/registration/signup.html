@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+    {% load static %}
+    {% block extra_css %}<link rel="stylesheet" href="{% static "forms.css" %}">{% endblock %}
+
+    {% block content %}
+    <section>
+        <h2>Create an account with VTC and change the <br> future of this school</h2>
+        {% if form.errors %}
+            <div class="errors">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <span>Name</span>
+                {{ form.name }}
+            </div>
+
+            <div class="input-group">
+                <span>Email</span>
+                {{ form.email }}
+            </div>
+
+            <div class="input-group">
+                <span>Department</span>
+                {{ form.department }}
+            </div>
+
+            <div class="input-group">
+                <span>Faculty</span>
+                {{ form.faculty }}
+            </div>
+
+            <div class="input-group">
+                <span>Matric No</span>
+                {{ form.matNo }}
+            </div>
+
+            <div class="input-group">
+                <span>Password</span>
+                {{ form.password1 }}
+            </div>
+
+            <div class="input-group">
+                <span>Confirm</span>
+                {{ form.password2 }}
+            </div>
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </section>
+    
+{% endblock  %}

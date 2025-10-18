@@ -1,0 +1,878 @@
+/* important settings */
+body{
+    margin: 0;
+    min-width: 75rem;
+    padding: 0;
+    font-family:'Poppins', sans-serif;
+    background-color: rgb(247, 252, 249);
+    line-height: 1.875rem;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    color: rgb(1, 22, 1);
+}
+
+p{
+    font-size: 1.25rem;
+}
+
+img{
+    background-position: center center ;
+}
+
+.btn{
+    border: 0;
+    border-radius: 0.312rem;
+    background-color: rgb(14, 36, 14);
+    color: white;
+    text-align: center;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+    scale: 1.05;
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.btns{
+    border: 0;
+    border-radius: 0.312rem;
+    background-color: rgb(14, 36, 14);
+    color: white;
+    display: none;
+}
+
+.btns:hover{
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+    scale: 1.05;
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.social-icons{
+    width: 1.875rem;
+    height: 1.875rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo-icons{
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.social-icons:hover{
+    scale: 1.05;
+    transition: 0.3s;
+    filter: brightness(50%);
+}
+
+.icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-container img{
+    margin-right: 5px;
+}
+
+#logout{
+    background-color: #008000;
+    border: 0;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.icon-container .social-icons:hover{
+    scale: 1.05;
+    transition: 0.3s;
+    filter: brightness(100%);
+}
+
+
+.landing-nav{
+    background-color: green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.312rem 0.625rem;
+    margin-bottom: 1.875rem;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.landing-nav img{
+    border-radius: 1px;
+}
+.landing-nav ul{
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.landing-nav ul li{
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.landing-nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.landing-nav ul li:hover{
+    transition: 0.3s;
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+    /* scale: 1.1; */
+}
+
+.ongoing-elections{
+    width: 80%;
+    background-color: rgb(14, 35, 14);
+    margin: 6.25rem auto;
+    border-radius: 1.25rem;
+    text-align: center;
+    padding-bottom: 0.312rem;
+    color: white;
+    padding-top: 0.125rem;
+}
+
+
+.oe1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.625rem;
+    border-top: 0.125rem solid gray;
+    height: 2.5rem;
+    margin: 0;
+}
+
+.ibhaw{
+    margin-left: 0.2rem;
+    display: none !important;
+}
+
+.oe1 a{
+    border: 0;
+    width: 20%;
+}
+
+.info-block{
+    background:linear-gradient(45deg, rgb(1, 95, 1), lightgreen);
+    text-align: center;
+    margin-top: 1.825rem;
+    padding: 4% 0 7% 0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ibtw{
+    width: 80%; 
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-block h1{
+   /* display: inline; */
+   text-align: center;
+   line-height: 0;
+}
+
+.info-block p{
+    margin: auto;
+    text-align: center;
+    display: inline !important;
+}
+
+.ib1{
+    display: flex;
+    justify-content:center;
+    margin-top: 1.25rem;
+}
+.ib1 a{
+    margin:0  1.25rem;
+}
+
+.info-block a{
+    border: 0;
+    padding: 0.75rem;
+    width: 9.375rem;
+}
+
+.authorize-btn{
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.authorize-btn a{
+    width: 27%;
+    padding: 1.06rem 0.93rem;
+    margin: 0.625rem auto;
+    text-align: center;
+}
+
+table{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 50px;
+    color: black;
+}
+
+table, th, tr, td{
+    border: 3px solid black;
+    padding: 5px;
+    border-collapse:collapse ;
+}
+
+.elec-stats{
+    text-align: center;
+    margin: 90px 0  1.25rem 0 ;
+
+}
+
+.graphs{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;    
+    margin-bottom: 100px;
+}
+
+.stat{
+    margin-left: 0.625rem;
+    box-shadow: 0 0 5px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0.625rem;
+    padding:  1.25rem 2.5rem;
+}
+
+.stat p{
+    text-align: center;
+}
+
+.Shape{
+    height: 200px;
+    width: 200px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+footer{
+    background-color: rgb(2, 67, 2);
+    color: white;
+    margin-top: 1.875rem;
+    padding-top: 0.625rem;
+    width: 100%;
+}
+
+footer a{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+footer a:hover{
+    transition: 0.3s;
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.fr1{
+    display: flex;
+    justify-content: center;
+}
+
+.fr1 div{
+    width: 25%;
+    padding-left: 0.625rem;
+    border-right: 2px solid white;
+}
+
+.fr2{
+    padding: 5px;
+    border-top: 2px solid white;
+    text-align: center;
+}
+
+
+
+/* DONE */
+
+/* Home styling */
+.home-body{
+    background: linear-gradient(90deg, rgb(114, 215, 114), rgb(8, 101, 37));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-nav{
+    background-color: green;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+.home-nav-1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-nav-1 img{
+    margin: 5px 0.625rem;
+    border-radius: 1px;
+}
+
+.home-nav-1 ul{
+    display: flex;
+    list-style: none;
+}
+
+.home-nav-1 ul li{
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.home-nav-1 ul li a{
+    font-size:  1.25rem;
+}
+
+
+
+.home-nav-1 ul li:hover{
+    transition: 0.3s;
+    /* scale: 1.1; */
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.home-nav-2{
+    background-color: rgb(3, 72, 3);
+    width: 100%;
+    margin-top: 0px;
+    padding: 0;
+    /* margin-bottom: 50px; */
+}
+.home-nav-2 ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.home-nav-2 ul li{
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.home-nav-2 ul li a{
+    font-size:  1.25rem;
+}
+
+.home-nav-2 ul li:hover{
+    transition: 0.3s;
+    /* scale: 1.1; */
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.big-logo{
+    padding-top: 20%;
+    min-height: 70vh;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.big-logo a{
+    padding: 0.625rem;
+    width: 150px;
+}
+
+.b-logo{
+    /* width: 50%; */
+    margin: auto;
+}
+
+.second-sec{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 6.25rem;
+    margin-bottom: 6.25rem;
+}
+
+.popular-candidates{
+    background: linear-gradient(90deg, rgb(49, 62, 49), rgb(4, 71, 26));
+    padding-top:  1.25rem;
+    color: white;
+    width: 45%;
+    margin: auto;
+    margin-top: 1.5rem;
+    border-radius:  1.25rem;
+    
+}
+
+.es1{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: auto;
+}
+
+.es1 img{
+    height: 300px;
+    width: 250px;
+    border-radius: 0.625rem ;
+    object-fit: cover;
+}
+
+.es2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0  1.25rem;
+}
+
+.es2 a{
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+}
+
+.vote-table{
+    /* background: linear-gradient(180deg, rgb(111, 222, 111), rgb(14, 44, 14)) ; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.625rem;
+    padding-bottom:  1.25rem;
+}
+
+.vote-table h1{
+    color: white;
+}
+
+.home-table ,.home-table tr, .home-table td, .home-table th{
+    color: white;
+    border: 3px solid white;
+}
+
+/* run for election */
+
+.runforelection-section{
+    margin-top: 15%;
+}
+
+
+.input-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group span{
+    background-color: rgb(1, 32, 1);
+    color: white;
+    width: 150px;
+    margin-top: 0.625rem;
+    border-radius: 5px 0 0px 5px;
+    height: 2.5rem;
+    text-align: center;
+    padding-top: 7px;
+}
+
+.input-group:hover span{
+    background: linear-gradient(225deg, rgb(107, 239, 100), rgb(2, 39, 2));
+    color: black;
+}
+
+
+input{
+    width: 700px;
+    /* padding: 15px; */
+    margin-top: 0.625rem;
+    border-radius: 0px 5px 5px 0px;
+    border: 0;
+    height: 45px;
+    padding-left: 0.625rem;
+    background-color: rgb(210, 241, 210);
+}
+
+
+/* vote */
+
+.vote-section{
+    margin-top: 135px;
+    padding-top: 2.5rem;
+    /* text-align: center; */
+}
+
+.vote-section h1{
+    color: rgb(3, 3, 3);
+}
+
+
+.election-candidates{
+    margin-top: 50px;
+}
+
+.election-candidates h1{
+    color: black;
+    padding: 0.625rem;
+    width: 200px;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom:  1.25rem;
+}
+
+.election-candidates-rows{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 80%;
+    margin: auto;
+    gap: 100px;
+}
+
+.candidate-profile{
+    width: 120%;
+    padding-bottom: 10px;
+    border-radius: 0.625rem;
+    background-color:  rgb(33, 125, 62);
+    height: 1000px;
+}
+
+.candidate-profile img{
+    width: 100%;
+    height: 300px;
+    border-radius: 0.625rem 0.625rem 0 0;
+    object-fit: cover;
+}
+
+.candidate-profile p {
+    margin-left: 0.625rem;
+    font-weight: 600;
+    display: inline;
+    color: white;
+}
+
+.cpr-btns{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 0.625rem;
+
+}
+
+.candidate-profile a{
+    padding: 3px 0.625rem;
+    margin-left: 0.625rem;
+}
+
+.label{
+    font-size:  1.25rem;
+    font-weight: 600;
+    margin-left: 0.625rem;
+}
+
+
+
+/* PROFILE */
+
+.profile-body{
+    background-color: white;
+}
+
+.profile-section{
+    margin: 170px auto;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    line-height: 1.875rem;
+    padding:  1.25rem;
+}
+
+.profile-section p {
+    display: inline;
+}
+
+.profile-section span{
+    font-size:  1.25rem;
+    font-weight: bold;
+    color: rgb(3, 38, 3);
+    margin-left: 15px;
+}
+
+.p-g{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.personal-info{
+    box-shadow: 0 0 3px black;
+    width: 100%;
+    border-radius:  1.25rem;
+    padding: 0.625rem;
+    height: 600px;
+}
+
+.personal-info a{
+    padding: 10px 1rem;
+    margin-left: 0.625rem;
+}
+
+.personal-info img{
+    height: 300px;
+    width: 100%;
+    border-radius:  1.25rem;
+    object-fit: cover;
+    object-position: 50% 30%;
+}
+
+.election-info{
+    max-width: 100%;
+}
+
+.manifesto-wrapper{
+    border-radius:  1.25rem;
+    box-shadow: 0 0 3px black;
+    padding: 0.625rem;
+    height: 3 1.25rem;
+}
+
+.manifesto{
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.manifesto::-webkit-scrollbar {
+  width: 8px;
+  height: 200px;
+}
+.manifesto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0.625rem;
+}
+.manifesto::-webkit-scrollbar-thumb {
+  background: #4CAF50;
+  border-radius: 0.625rem;
+}
+.manifesto::-webkit-scrollbar-thumb:hover {
+  background: #388E3C;
+}
+.scroll-box {
+  height:  1.25rem;  
+  overflow-y: auto;
+}
+
+.cv-wrapper{
+    height: 25rem;
+    border-radius:  1.25rem;
+    overflow-y: scroll;
+}
+
+.cv-scroll{
+    border-radius:  1.25rem;
+    box-shadow: 0 0 3px black;
+    padding: 0.625rem;
+    height: 25.5rem;
+    width: 60%;
+    margin-top:  1.25rem;
+}
+
+
+.cv-wrapper::-webkit-scrollbar {
+  width: 8px;
+  height: 180px;
+}
+.cv-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0.625rem;
+}
+.cv-wrapper::-webkit-scrollbar-thumb {
+  background: #4CAF50;
+  border-radius: 0.625rem;
+}
+.cv-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #388E3C;
+}
+.scroll-box {
+  height:  1.25rem;   /* change this value */
+  overflow-y: auto; /* makes it scroll vertically */
+}
+
+.campaign-vids{
+    border-radius:  1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.625rem;
+}
+
+.video {
+  width: 300px;
+  height: 200px;
+  border-radius:  1.25rem;
+  overflow: hidden;
+  position: relative;  
+  margin-top:  1.25rem;
+}
+
+.video video {
+  position: absolute;   
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
+}
+
+
+.graphs-p{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;    
+    gap:  1.25rem;
+    margin-bottom: 100px;
+    margin-top:  1.25rem;
+}
+
+.stat-p{
+    margin-left: 0.625rem;
+    box-shadow: 0 0 5px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 200px;
+    border-radius: 0.625rem;
+}
+
+.stat-p p{
+    text-align: center;
+}
+
+.Shape-p{
+    height: 150px;
+    width: 150px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    align-self: center;
+    margin-top: 0.625rem;
+}
+
+
+
+
+
+@media (max-width: 480px){
+    .runforelection-section{
+        margin-top: 15%;
+    }
+    .landing-nav img{
+        display: none;
+    }
+    .landing-nav{
+        display: flex;
+        justify-content: center;
+    }
+    .ib1{
+        width: 20%;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        margin: 20px auto;
+        gap: 10px;
+    }
+    .info-block p{
+        display: none !important;
+    }
+    .second-sec{
+        flex-direction: column;
+        gap: 0;
+    }
+}
+@media (max-width: 600px){
+    .elec-stats{
+        display: block
+    }
+    .graphs{
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 0 10px;
+    }
+    .Shape{
+        margin: auto;
+    }
+    .oe1{
+        min-height: 2.5rem;
+    }
+    .info-block{
+        padding-top: 50px;
+    }
+    .btns{
+        display: block !important;
+    }
+    .popular-candidates{
+        width: 70%;
+        margin: auto;
+        margin-top: 1.875rem;
+    }
+
+    .es1 img{
+        height: 400px;
+        width: 400px;
+        border-radius: 0.625rem ;
+        object-fit: cover;
+    }
+
+}
+
+@media (max-width: 768px){
+    .hideatwidth{
+        display: none !important;
+    }
+    .info-block{
+        height: 100vh;
+    }
+}
+
+@media (max-width: 992px){
+
+}
+@media (max-width: 1200px){}
+@media (max-width: 1400px){
+}

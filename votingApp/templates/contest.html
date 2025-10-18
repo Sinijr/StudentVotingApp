@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+  {% load static %}
+    {% block extra_css %}<link rel="stylesheet" href="{% static "edit.css" %}">{% endblock %}
+    {% block content %}
+    <section>
+      {% if user.is_authenticated %}
+        <h2>Become a candidate and build the future of this school</h2>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages|slice:":1" %}
+                  <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form id="editform" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% comment %} <div class="input-group">
+                <span>Name</span>
+                {{ form.student }}
+            </div> {% endcomment %}
+
+            <div class="input-group">
+                {{ form.manifesto }}
+            </div>
+
+            <div class="input-group">
+                <span>Profile Image</span>
+                {{ form.image }}
+            </div>
+
+            <div class="input-group">
+                <span>Campaign Video</span>
+                {{ form.video }}
+            </div>
+
+            <div class="input-group">
+                <span>Instagram</span>
+                {{ form.ig_url }}
+            </div>
+
+            <div class="input-group">
+                <span>Twitter</span>
+                {{ form.x_url }}
+            </div>
+
+            <div class="input-group">
+                <span>Snapchat</span>
+                {{ form.snap_url }}
+            </div>
+            <button type="submit" style="text-align:center;" class="btn">Contest</button>
+        </form>
+        {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+    </section>
+    {% endblock %}

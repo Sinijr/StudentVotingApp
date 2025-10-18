@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+    {% load static %}
+    {% block content %}
+    
+<section class="profile-section">
+    {% if user.is_authenticated %}
+        <div class="p-g">
+            <div class="personal-info">
+                {% if candidacy %}
+                    {% for cand in candidacy|slice:":1" %}
+                            <img src="{{ cand.candidate.image.url }}" alt="profile-image">
+                    {% endfor %}
+                {% else %}
+                    <img src="{% static 'images/blank-profile-picture-973460_1280.webp' %}" alt="profile-image">
+                {% endif %}
+                
+                <span>Name:</span> <p>{{ student.name }}</p>
+                <br>
+                <span>Email:</span> <p>{{ student.email }}</p>
+                <br>
+                <span>Dep:</span> <p>{{ student.department }}</p>
+                <br>
+                <span>Fac:</span> <p>{{ student.faculty }}</p>
+                <br>
+                {% for cand in candidacy %}
+                    {% if cand %}
+                        <span>Candidacy:</span> <p>{{ cand.position.title }} in {{ cand.election.title }}</p>
+                        <br>
+                    {% endif %}
+                {% endfor %}
+                <br>
+                {% comment %} {% for cand in candidacy  %} {% endcomment %}
+                    {% if request.user == student %}
+                        <a href="{% url "edit-profile" student.pk %}" class="btn">Edit Profile</a>
+                    {% endif %}
+                {% comment %} {% endfor %} {% endcomment %}
+
+        </div>
+        <div class="graphs-p">    
+            <div class="stat-p">
+                <div class="Shape-p"></div>
+                <p>Candidate one</p>
+            </div>
+            <div class="stat-p">
+                <div class="Shape-p"></div>
+                <p>Candidate one</p>
+            </div>
+        </div>
+        </div>
+        <div class="election-info">
+            {% if candidacy %}
+                {% for cand in candidacy|slice:":1" %}
+                <div class="manifesto-wrapper">
+                    <div class="manifesto">
+                        <p>{{ cand.candidate.manifesto }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            {% if candidacy %}
+            <div class="cv-scroll">
+                <div class="cv-wrapper">
+                        {% for cand in candidacy|slice:":1" %}
+                            <div class="campaign-vids">
+                                <h1>Watch our videos and Fliers</h1>
+                                    {% if cand.candidate.video %}
+                                    <div class="video">
+                                        <video src="{{ cand.candidate.video.url }}" controls></video>
+                                        <span>campaign video</span>
+                                    </div>
+                                    {% endif %}
+                                    {% comment %} <video src="{{ }}" controls></video> {% endcomment %}
+                            </div>
+                        {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+    </section>
+    {% endblock %}

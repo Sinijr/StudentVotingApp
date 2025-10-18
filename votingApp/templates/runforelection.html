@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+  {% load static %}
+    {% block extra_css %}<link rel="stylesheet" href="{% static "edit.css" %}">{% endblock %}
+    {% block content %}
+    <section>
+      {% if user.is_authenticated %}
+        <h2>Run for Post</h2>
+        <div>
+          
+            <div class="errors">
+              <ul style="list-style:none;">
+                {% if form.errors %}
+                <li style="color:red">
+                  {{ form.errors }}
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+        </div>
+        <form id="editform" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <span>Candidate</span>
+                {{ form.candidate }}
+            </div>
+            <div class="input-group">
+                <span>Position</span>
+                {{ form.position }}
+            </div>
+
+
+            <button type="submit" style="text-align:center;" class="btn">Contest</button>
+        </form>
+        {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+    </section>
+    {% endblock %}

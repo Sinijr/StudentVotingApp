@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static "edit.css" %}">{% endblock %}
+{% block content %}
+    <section>
+        {% if user.is_authenticated %}
+        <h2>Edit your Profile {{ student.name }}</h2>
+        {% if form.errors %}
+            <div class="errors">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        <form id="editform" method="POST" action="{% url 'edit-profile' student.pk %}">
+            {% csrf_token %}
+            <div class="input-group">
+                <span>Name</span>
+                {{ form.name }}
+            </div>
+
+            <div class="input-group">
+                <span>Email</span>
+                {{ form.email }}
+            </div>
+
+            <div class="input-group">
+                <span>Department</span>
+                {{ form.department }}
+            </div>
+
+            <div class="input-group">
+                <span>Faculty</span>
+                {{ form.faculty }}
+            </div>
+
+            <div class="input-group">
+                <span>Matric No</span>
+                {{ form.matNo }}
+            </div>
+            <button type="submit" class="btn">Save Profile</button>
+        </form>
+        {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+    </section>
+{% endblock %} 

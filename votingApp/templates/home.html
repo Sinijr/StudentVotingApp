@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+  <section>
+    {% if user.is_authenticated %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 20px; "><strong>VFC</strong></h1>
+            <P style="font-size: 30px; line-height: 20px;">Vote for Change</P>
+            <div class="ib1">
+                <a href="{% url "election" %}" class="btn">Vote Now</a>
+                <a href="{% url "create-candidacy" %}" class="btn">Run for Election</a>
+            </div>
+        </div>
+      </div>
+      <div class="second-sec">
+  {% for election in elections %}
+    {% if election.has_candidates %}
+      <div class="popular-candidates">    
+        <div class="es1">
+          {% for can in election.candidacy_set.all|slice:":2" %}
+            {% if can.candidate.image %}
+              <div><img src="{{ can.candidate.image.url }}" alt="{{ can.candidate }}"></div>
+            {% else %}
+              <div><img src="#" alt=""></div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="es2" style="margin-bottom:10px;">
+          <h3>{{ election.title }}</h3>
+            {% if election.first_position %}
+              <a href="{% url 'candidates-election' election.first_position.pk %}" class="btn">view</a>
+            {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
+    </section>
+
+    
+    {% else %}
+      <div class="big-logo">
+        <div class="b-logo">
+          <h1 style="font-size: 60px; line-height: 3rem; "><strong>PLs Login before accessing the home page</strong></h1>
+        </div>
+      </div>    
+    {% endif %}
+
+{% endblock %}

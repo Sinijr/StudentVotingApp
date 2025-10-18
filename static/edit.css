@@ -1,0 +1,271 @@
+
+body{
+    margin: 0;
+    min-width: 75rem;
+    padding: 0;
+    font-family:'Poppins', sans-serif;
+    background-color: rgb(247, 252, 249);
+    line-height: 1.875rem;
+}
+
+.messages{
+    list-style:none;
+}
+
+.messages li.success {
+    font-size:2rem;
+    color:rgb(21, 112, 21);
+    text-align:center;
+    line-height:2rem
+}
+
+/* Error messages */
+.messages li.error {
+    font-size:2rem;
+    color:red;
+    text-align:center;
+    line-height:2rem
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    color: rgb(1, 22, 1);
+}
+
+p{
+    font-size: 1.25rem;
+}
+
+img{
+    background-position: center center ;
+}
+
+.btn{
+    border: 0;
+    border-radius: 0.312rem;
+    background-color: rgb(14, 36, 14);
+    color: white;
+    text-align: center;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+    scale: 1.05;
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.btns{
+    border: 0;
+    border-radius: 0.312rem;
+    background-color: rgb(14, 36, 14);
+    color: white;
+    display: none;
+}
+
+.btns:hover{
+    background-color: white;
+    color: black;
+    transition: 0.3s;
+    scale: 1.05;
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.social-icons{
+    width: 1.875rem;
+    height: 1.875rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo-icons{
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.social-icons:hover{
+    scale: 1.05;
+    transition: 0.3s;
+    filter: brightness(50%);
+}
+
+.icon-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-container img{
+    margin-right: 5px;
+}
+
+.icon-container .social-icons:hover{
+    scale: 1.05;
+    transition: 0.3s;
+    filter: brightness(100%);
+}
+
+
+.home-body{
+    background: linear-gradient(90deg, rgb(114, 215, 114), rgb(8, 101, 37));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home-nav{
+    background-color: green;
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+.home-nav-1{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-nav-1 img{
+    margin: 5px 0.625rem;
+    border-radius: 1px;
+}
+
+.home-nav-1 ul{
+    display: flex;
+    list-style: none;
+}
+
+.home-nav-1 ul li{
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.home-nav-1 ul li a{
+    font-size:  1.25rem;
+}
+
+.home-nav-1 ul li:hover{
+    transition: 0.3s;
+    /* scale: 1.1; */
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+.home-nav-2{
+    background-color: rgb(3, 72, 3);
+    width: 100%;
+    margin-top: 0px;
+    padding: 0;
+    /* margin-bottom: 50px; */
+}
+.home-nav-2 ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.home-nav-2 ul li{
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.home-nav-2 ul li a{
+    font-size:  1.25rem;
+}
+
+.home-nav-2 ul li:hover{
+    transition: 0.3s;
+    box-shadow: inset 0 4px 6px rgba(98, 213, 156, 0.4);
+}
+
+
+section{
+    margin-top: 12rem;
+    width: 100%;
+ }
+
+h2{
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#editform{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+    margin: auto;
+}
+
+.textarea{
+    height: 100px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#editform button{
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px 1.4rem;
+    display: flex;
+    align-self: center;
+    
+}
+
+.input-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group .input{
+    width: 80%;
+    margin-top: 0.625rem;
+    border-radius: 0px 5px 5px 0px;
+    border: 0;
+    height: 2.812rem;
+    padding-left: 0.625rem;
+}
+
+span{
+    background-color: rgb(1, 32, 1);
+    color: white;
+    width: 20%;
+    margin-top: 0.625rem;
+    border-radius: 5px 0 0px 5px;
+    height: 2.5rem;
+    text-align: center;
+    padding-top: 7px;
+}
+
+.input-group:hover span{
+    background: linear-gradient(225deg, rgb(107, 239, 100), rgb(2, 39, 2));
+    color: black;
+}
+
+
+input{
+    width: 80%;
+    margin-top: 0.625rem;
+    border-radius: 0px 5px 5px 0px;
+    border: 0;
+    height: 2.812rem;
+    padding-left: 0.625rem;
+}
